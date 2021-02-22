@@ -1,0 +1,108 @@
+
+body{
+    font-family: Roboto;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    background-color: #2980B9;
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+}
+
+.title{
+    color: #2980B9;
+    font-weight: normal;
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+
+
+/* li {
+    background-color: white;
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+}
+
+li span {
+    margin-right: 20px;
+    height: 40px;
+    width: 0;
+    color: white;
+} */
+
+li span {
+    background-color: #e74c3c;
+    height: 40px;
+    width: 0;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+li:hover span {
+    width: 40px;
+    opacity: 1.0;
+}
+
+
+/* Move plus symbol to the right */
+.fa-plus {
+    float: right;
+}
+
+
+li:nth-child(2){
+    background-color: #f7f7f7;
+}
+
+input {
+    font-size: 18px;
+    background-color: #f7f7f7;
+    width: 100%;
+    padding: 13px 13px 13px 20px;
+    box-sizing: border-box;
+    color: #2980B9;
+    border: 3px solid rgba(0,0,0,0);
+}
+
+input:focus{
+    background-color: white;
+    border: 3px solid #2980B9;
+    outline: none;
+}
+
+.container{
+    background: #f7f7f7;
+    width: 40%;
+    margin: 150px auto;
+    /*box-shadow: 0 0 3px rgb(0, 0, 0, 0.4);*/
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
+
+.row{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.completed{
+    color: rgb(128, 128, 128);
+    text-decoration: line-through;
+}

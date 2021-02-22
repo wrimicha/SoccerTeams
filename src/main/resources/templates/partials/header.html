@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="myHeader">
+    <head>
+        <title> YelpCamp </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    </head>
+    <body>
+    <nav>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">FIFA World Cup</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{home}">Home</a></li>
+                    <li><a th:href="@{add}">Add Team</a></li>
+                    <li><a th:href="@{edit}">Edit Team</a></li>
+                    <li><a th:href="@{delete}">Delete Team</a></li>
+                    <li><a th:href="@{results}">Display Results</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </body>
+</div>
+</html>
