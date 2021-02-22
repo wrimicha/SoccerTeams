@@ -18,13 +18,13 @@ public class DatabaseAccess {
     public void  insertRecord(String  country, String continent, int gamesPlayed, int gamesWon, int gamesDrawn, int gamesLost){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "INSERT INTO record(country, continent, gamesPlayed, gamesWon, gamesDrawn, gamesLost) VALUES(:country1, :continent1, :gamesPlayed1, :gamesWon1, :gamesDrawn1, :gamesLost1)";
-        namedParameters.addValue("country1" , country);
-        namedParameters.addValue("continent1" , continent);
-        namedParameters.addValue("gamesPlayed1" , gamesPlayed);
-        namedParameters.addValue("gamesWon1" , gamesWon);
-        namedParameters.addValue("gamesDrawn1" , gamesDrawn);
-        namedParameters.addValue("gamesLost1" , gamesLost);
+        String query = "INSERT INTO record(country, continent, gamesPlayed, gamesWon, gamesDrawn, gamesLost) VALUES(:country, :continent, :gamesPlayed, :gamesWon, :gamesDrawn, :gamesLost)";
+        namedParameters.addValue("country" , country);
+        namedParameters.addValue("continent" , continent);
+        namedParameters.addValue("gamesPlayed" , gamesPlayed);
+        namedParameters.addValue("gamesWon" , gamesWon);
+        namedParameters.addValue("gamesDrawn" , gamesDrawn);
+        namedParameters.addValue("gamesLost" , gamesLost);
         int rowsAffected = jdbc.update(query,namedParameters);
         if (rowsAffected > 0)
             System.out.println("Record record was added successfully!");
@@ -38,6 +38,23 @@ public class DatabaseAccess {
 
         return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
 
+    }
+
+    public void updateRecordById(Record record){
+
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        String query =
+                "UPDATE record SET country =:country, continent =:continent, gamesPlayed =:gamesPlayed, gamesWon =:gamesWon, gamesDrawn =:gamesDrawn, gamesLost =:gamesLost WHERE id = :id";
+        namedParameters.addValue("id" , record.getId());
+        namedParameters.addValue("country" , record.getCountry());
+        namedParameters.addValue("continent" , record.getContinent());
+        namedParameters.addValue("gamesPlayed" , record.getGamesPlayed());
+        namedParameters.addValue("gamesWon" , record.getGamesWon());
+        namedParameters.addValue("gamesDrawn" , record.getGamesDrawn());
+        namedParameters.addValue("gamesLost" , record.getGamesLost());
+        int rowsAffected = jdbc.update(query,namedParameters);
+        if (rowsAffected > 0)
+            System.out.println("Student record was updated successfully!");
     }
 
 }

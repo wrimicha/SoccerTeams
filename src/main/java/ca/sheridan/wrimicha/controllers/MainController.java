@@ -27,6 +27,22 @@ public class MainController {
         return mv;
     }
 
+    @GetMapping("/editList")
+    public ModelAndView goToEditList(){
+
+        mv = new ModelAndView("editList", "records",da.getRecords());
+        //mv.addObject("record", new Record());
+
+        return mv;
+    }
+
+    @GetMapping("/home")
+    public ModelAndView goHome(){
+
+        mv = new ModelAndView("home", "records",da.getRecords());
+        return mv;
+    }
+
     @GetMapping("/add")
     public String addRecord(Model model){
 
@@ -38,7 +54,7 @@ public class MainController {
     public String editRecord(Model model, Record record){
 
         model.addAttribute("record", record);
-        return "add";
+        return "edit";
     }
 
 //    @GetMapping("/add")
@@ -51,7 +67,14 @@ public class MainController {
 //    }
 
     @PostMapping ("/addRecord")
-    public ModelAndView processRecord(@ModelAttribute Record record){
+    public ModelAndView addRecord(@ModelAttribute Record record){
+
+        da.insertRecord(record.getCountry(), record.getContinent(), record.getGamesPlayed(), record.getGamesWon(), record.getGamesDrawn(), record.getGamesLost());  //insert students
+        return new ModelAndView("home", "records", da.getRecords()); //get that list of students
+    }
+
+    @PostMapping ("/editRecord")
+    public ModelAndView editRecord(@ModelAttribute Record record){
 
         da.insertRecord(record.getCountry(), record.getContinent(), record.getGamesPlayed(), record.getGamesWon(), record.getGamesDrawn(), record.getGamesLost());  //insert students
         return new ModelAndView("home", "records", da.getRecords()); //get that list of students

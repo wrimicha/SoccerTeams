@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
-<!--    <link rel="stylesheet" th:href="@{css/style.css}">-->
+<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+<!--        <link rel="stylesheet" th:href="@{css/style.css}">-->
     <div th:replace="partials/header::myHeader"></div>
-
 </head>
 <body>
 <h1>List of all Students:</h1>
@@ -21,13 +20,12 @@
             <td th:text="${s.gamesWon}"></td>
             <td th:text="${s.gamesDrawn}"></td>
             <td th:text="${s.gamesLost}"></td>
+            <td><a th:href="@{edit}">Edit</a></td>
         </tr>
 
     </th:block>
 
 </table>
-
-<li><a th:href="@{add}">Add Team</a></li>
 
 <!--<div>-->
 <!--    <form method="post"  th:action="@{/addRecord}" th:object="${record}">-->
