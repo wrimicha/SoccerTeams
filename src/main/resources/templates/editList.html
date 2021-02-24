@@ -8,35 +8,30 @@
     <div th:replace="partials/header::myHeader"></div>
 </head>
 <body>
-<h1>List of all Students:</h1>
 
-<table>
-    <tr><th>ID</th><th>Country</th><th>Continent</th><th>GamesPlayed</th><th>GamesWon</th><th>GamesDrawn</th><th>GamesWon</th></tr>
-    <th:block th:each="s:${records}">
-        <tr><td th:text="${s.id}"></td>
-            <td th:text="${s.country}"></td>
-            <td th:text="${s.continent}"></td>
-            <td th:text="${s.gamesPlayed}"></td>
-            <td th:text="${s.gamesWon}"></td>
-            <td th:text="${s.gamesDrawn}"></td>
-            <td th:text="${s.gamesLost}"></td>
-            <td><a th:href="@{edit}">Edit</a></td>
-        </tr>
+<div class="bg2">
+    <div class="overlay2">
+    <div class="containerWide">
+        <h3 class="boxTitle">List of all Teams:</h3>
+        <table>
+        <tr><th>ID</th><th>Country</th><th>Continent</th><th>Games Played</th><th>Games Won</th><th>Games Drawn</th><th>Games Won</th></tr>
+        <th:block th:each="s:${records}">
+            <tr><td th:text="${s.id}"></td>
+                <td th:text="${s.country}"></td>
+                <td th:text="${s.continent}"></td>
+                <td th:text="${s.gamesPlayed}"></td>
+                <td th:text="${s.gamesWon}"></td>
+                <td th:text="${s.gamesDrawn}"></td>
+                <td th:text="${s.gamesLost}"></td>
+                <td><a th:href="@{'updateRecordById/' + ${s.id}}">Edit</a></td>
+            </tr>
 
-    </th:block>
+        </th:block>
 
-</table>
-
-<!--<div>-->
-<!--    <form method="post"  th:action="@{/addRecord}" th:object="${record}">-->
-
-<!--        <input type="hidden" th:field="*{id}">-->
-<!--        <input type="text"  th:field="*{name}"><br>-->
-<!--        <input type="submit" value="Add Record">-->
-
-<!--    </form>-->
-
-<!--</div>-->
+    </table>
+    </div>
+    </div>
+</div>
 
 </body>
 </html>

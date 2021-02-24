@@ -40,6 +40,14 @@ public class DatabaseAccess {
 
     }
 
+    public List<Record> getRecordById(Long id){
+
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        String query = "SELECT * FROM record WHERE id =:id";
+        namedParameters.addValue("id" , id);
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
+    }
+
     public void updateRecordById(Record record){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();

@@ -1,108 +1,107 @@
 
-body{
-    font-family: Roboto;
+html{
+    font-family: Poppins, sans-serif;
+    background: #2f2f2f url("../images/bg2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+body {
+
 }
 
-h1{
-    background-color: #2980B9;
+
+/* Common CSS */
+
+table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header div.hero {
+    position: absolute;
+    width: 42%;
+    top: 130px;
+    margin-left: 15%;
+}
+
+header div.hero h1 {
+    line-height: 1em;
+    margin: 0 0 30px 0;
     color: white;
-    margin: 0;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 24px;
-    text-align: center;
+    font-size: 4em;
 }
 
-.title{
-    color: #2980B9;
-    font-weight: normal;
-    font-size: 24px;
-    margin-left: 30px;
-}
-
-
-
-/* li {
-    background-color: white;
-    height: 40px;
-    line-height: 40px;
-    color: #666;
-}
-
-li span {
-    margin-right: 20px;
-    height: 40px;
-    width: 0;
-    color: white;
-} */
-
-li span {
-    background-color: #e74c3c;
-    height: 40px;
-    width: 0;
-    margin-right: 20px;
-    text-align: center;
-    color: white;
-    display: inline-block;
-    transition: 0.2s linear;
-    opacity: 0;
-}
-
-li:hover span {
-    width: 40px;
-    opacity: 1.0;
-}
-
-
-/* Move plus symbol to the right */
-.fa-plus {
-    float: right;
-}
-
-
-li:nth-child(2){
-    background-color: #f7f7f7;
-}
-
-input {
-    font-size: 18px;
-    background-color: #f7f7f7;
-    width: 100%;
-    padding: 13px 13px 13px 20px;
-    box-sizing: border-box;
-    color: #2980B9;
-    border: 3px solid rgba(0,0,0,0);
-}
-
-input:focus{
-    background-color: white;
-    border: 3px solid #2980B9;
-    outline: none;
-}
-
-.container{
+.containerWide{
     background: #f7f7f7;
-    width: 40%;
-    margin: 150px auto;
-    /*box-shadow: 0 0 3px rgb(0, 0, 0, 0.4);*/
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border-radius: 10px;
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 8%;
+    box-shadow: 0 0 3px rgb(0, 0, 0, 0.4);
+    padding: 35px 40px;
+    border-radius: 30px;
+    position: absolute;
 }
 
-.row{
-    width: 90%;
-    margin: 0 auto;
+.containerNarrow{
+    background: #f7f7f7;
+    width: 45%;
+    margin-left: 27%;
+    margin-right: 27%;
+    margin-top: 4%;
+    margin-bottom: 69px;
+    position: absolute;
+    box-shadow: 0 0 3px rgb(0, 0, 0, 0.4);
+    padding: 25px 30px;
+    border-radius: 30px;
 }
 
-.completed{
-    color: rgb(128, 128, 128);
-    text-decoration: line-through;
+.boxTitle{
+    text-align: center;
+}
+
+
+/* Home Page */
+
+/*header {*/
+/*    height: 800px;*/
+/*    background-size: cover;*/
+/*    background: #cf0004 url("../images/fifa_18.jpg") no-repeat center top;*/
+/*    position: relative;*/
+/*}*/
+
+.overlay {
+    postition: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0.665703781512605) 0%, rgba(9, 9, 121, 0.6965161064425771) 35%, rgba(0, 212, 255, 0.6741071428571428) 100%);
+}
+
+.overlay2{
+    postition: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.8897934173669468) 0%, rgba(56,56,56,0.8365721288515406) 45%, rgba(0,0,0,0.8561799719887955) 100%);
+}
+
+
+/* Add Page */
+
+.bg2{
+    background: #cf0004 url("../images/bg2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
