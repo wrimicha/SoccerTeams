@@ -3,8 +3,6 @@ package ca.sheridan.wrimicha.controllers;
 import ca.sheridan.wrimicha.database.DatabaseAccess;
 import ca.sheridan.wrimicha.model.Record;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 @Controller
 public class MainController {
@@ -41,10 +37,19 @@ public class MainController {
         return mv;
     }
 
+    @GetMapping("/deleteList")
+    public ModelAndView goToDeleteList(){
+
+        mv = new ModelAndView("DeleteList", "records",da.getRecords());
+        return mv;
+    }
+
+
     @GetMapping("/home")
     public String goHome(){
         return "home";
     }
+
 
     @GetMapping("/add")
     public String addRecord(Model model){
@@ -63,14 +68,14 @@ public class MainController {
         return mv;
     }
 
-//    @GetMapping("/add")
-//    public ModelAndView gotoAdd(Model model){
-//
-//        //mv = new ModelAndView("add", "records",da.getRecords());
-//        mv.addObject("record", new Record());
-//
-//        return mv;
-//    }
+    @GetMapping("/deleteRecordById/{id}")
+    public ModelAndView deleteRecord(@PathVariable("id") Long id){
+
+        da.deleteRecordById(id);
+        mv = new ModelAndView("DeleteList", "records",da.getRecords());
+        return mv;
+    }
+
 
     @PostMapping ("/addRecord")
     public ModelAndView addRecord(@ModelAttribute Record record){

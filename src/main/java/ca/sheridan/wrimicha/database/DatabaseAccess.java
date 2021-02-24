@@ -65,4 +65,14 @@ public class DatabaseAccess {
             System.out.println("Student record was updated successfully!");
     }
 
+    public void deleteRecordById(Long id){
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        String query = "DELETE FROM record WHERE id = :id";
+        namedParameters.addValue("id", id);
+        int rowsAffected = jdbc.update(query,namedParameters);
+        if (rowsAffected > 0)
+            System.out.println("Team record was deleted successfully!");
+
+    }
+
 }
