@@ -23,15 +23,58 @@
                         <td th:text="${s.gamesWon}"></td>
                         <td th:text="${s.gamesDrawn}"></td>
                         <td th:text="${s.gamesLost}"></td>
-                        <td><a th:href="@{'deleteRecordById/' + ${s.id}}">Delete</a></td>
+                        <td><a onclick="myFunction('${s.id}}')">Delete</a></td>
+<!--                        th:href="@{'deleteRecordById/' + ${s.id}}"-->
                     </tr>
-
                 </th:block>
-
             </table>
+
+            <form method="post" th:action="@{/searchFilter}">
+                <div class="filterGroup">
+                    <p class="filterTitle">Filter By:</p>
+                    <select class="form-control" name="searchType">
+                        <option th:value="country" th:text="Country">Country</option>
+                        <option th:value="continent" th:text="Continent">Continent</option>
+                    </select>
+                    <p class="filterTitle">Enter Value:</p>
+                    <input type="text" class="form-control" name="searchValue">
+                    <input class="searchBtn btn btn-lg btn-primary btn-block" id="submitBtn" type="submit" value="Search">
+                </div>
+            </form>
+
+<!--            <div class="modal-bg">-->
+<!--                <div class="modal">-->
+<!--                    <h2>Are you sure you want to delete?</h2>-->
+<!--                    <button class="btnNo">Cancel</button>-->
+<!--                    <button class="btnYes" th:onClick="@{location.href = ${'deleteRecordById/'} + ${s.id}}'">Yes</button>-->
+<!--                </div>-->
+<!--            </div>-->
+
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction(int num) {
+        if(confirm("Do you want to continue?") ){
+            window.location.href('/deleteRecordById/' + num)
+        } else {
+            alert("User was not deleted.");
+            return false;
+        };
+    }
+</script>
+
+
+<!--<script>-->
+<!--    var btnNo = document.querySelector(".btnNo");-->
+<!--    var btnYes = document.querySelector(".btnYes");-->
+
+<!--    btnNo.addEventListener("click", () => {-->
+<!--        window.location.href = th:href="$@{'deleteRecordById/' + ${s.id}}";-->
+<!--    })-->
+
+<!--</script>-->
 
 </body>
 </html>

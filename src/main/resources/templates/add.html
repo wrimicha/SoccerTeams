@@ -6,46 +6,44 @@
     <div th:replace="partials/header::myHeader"></div>
 </head>
 <body>
-    <header class="bg2">
-        <div class="overlay2">
-            <div class="containerNarrow">
-                <h3 class="boxTitle">Add New Team:</h3>
-                <div class="row">
-                    <form th:action="@{/addRecord}" th:object="${record}" method="POST">
-                        <div class="form-group">
-                            <input class="form-control" type="hidden" th:field="*{id}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Country:</h4>
-                            <input class="form-control" th:field="*{country}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Continent:</h4>
-                            <input class="form-control" th:field="*{continent}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Games Played:</h4>
-                            <input class="form-control" th:field="*{gamesPlayed}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Games Won:</h4>
-                            <input class="form-control" th:field="*{gamesWon}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Games Drawn:</h4>
-                            <input class="form-control" th:field="*{gamesDrawn}">
-                        </div>
-                        <div class="form-group">
-                            <h4>Games Lost:</h4>
-                            <input class="form-control" th:field="*{gamesLost}">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-lg btn-primary btn-block">Update!</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="bg2">
+        <div class="containerNarrow">
+            <h3 class="boxTitle">Add New Team:</h3>
+            <div class>
+                <form th:action="@{/addRecord}" th:object="${record}" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" th:field="*{id}">
+                    </div>
+                    <div class="form-group">
+                        <h6 for="country">Country:</h6>
+                        <input class="form-control" id="country" th:field="*{country}">
+                    </div>
+                    <div class="form-group">
+                        <h6>Continent:</h6>
+                        <input class="form-control" th:field="*{continent}">
+                    </div>
+                    <div class="form-group">
+                        <h6>Games Played:</h6>
+                        <input type="number" class="form-control" step="1" th:field="*{gamesPlayed}">
+                    </div>
+                    <div class="form-group">
+                        <h6 for="gameswon">Games Won:</h6>
+                        <input type="number" class="form-control" id="gameswon" step="1" th:field="*{gamesWon}">
+                    </div>
+                    <div class="form-group">
+                        <h6>Games Drawn:</h6>
+                        <input type="number" step="1" class="form-control" th:field="*{gamesDrawn}">
+                    </div>
+                    <div class="form-group">
+                        <h6>Games Lost:</h6>
+                        <input type="number" step="1" class="form-control" th:field="*{gamesLost}">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Add Team!</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </header>
+    </div>
 </body>
 </html>

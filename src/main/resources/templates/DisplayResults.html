@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="partials/header::myHeader"></div>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+</head>
+<body>
+
+<div class="bg2">
+    <div class="overlay2">
+        <div class="containerWide">
+            <h3 class="boxTitle">List of all Teams:</h3>
+            <table>
+                <tr><th>ID</th><th>Country</th><th>Continent</th><th>Games Played</th><th>Games Won</th><th>Games Drawn</th><th>Games Won</th><th>Points</th></tr>
+                <th:block th:each="s:${records}">
+                    <tr><td th:text="${s.id}"></td>
+                        <td th:text="${s.country}"></td>
+                        <td th:text="${s.continent}"></td>
+                        <td th:text="${s.gamesPlayed}"></td>
+                        <td th:text="${s.gamesWon}"></td>
+                        <td th:text="${s.gamesDrawn}"></td>
+                        <td th:text="${s.gamesLost}"></td>
+                        <td th:text="${3 * s.gamesWon + s.gamesDrawn}"></td>
+                    </tr>
+
+                </th:block>
+            </table>
+
+            <div class="filterGroup">
+                <form method="post" th:action="@{/filterResults}">
+                    <h6 class="boxTitle">Filter Results:</h6>
+                    <div class="filter">
+                        <label for="onName">Sort By Name</label><br>
+                        <input checked type="radio" id="onName" name="filter" value="0">
+                    </div>
+                    <div class="filter">
+                        <label for="onContinent">Sort By Continent</label><br>
+                        <input type="radio" id="onContinent" name="filter" value="1">
+                    </div>
+                    <div class="filter">
+                        <label for="onPts">Sort By Points</label><br>
+                        <input type="radio" id="onPts" name="filter" value="2">
+                    </div>
+                    <input class="btn btn-lg btn-primary btn-block" id="submitBtn" type="submit" value="Search">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

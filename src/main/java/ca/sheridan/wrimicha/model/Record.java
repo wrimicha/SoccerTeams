@@ -23,4 +23,5 @@ public class Record implements Serializable{
     private int gamesDrawn;
     @NonNull
     private int gamesLost;
+    private int points;
 }

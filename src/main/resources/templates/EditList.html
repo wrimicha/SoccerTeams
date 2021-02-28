@@ -25,10 +25,22 @@
                 <td th:text="${s.gamesLost}"></td>
                 <td><a th:href="@{'updateRecordById/' + ${s.id}}">Edit</a></td>
             </tr>
-
         </th:block>
-
     </table>
+
+        <form method="post" th:action="@{/searchFilter}">
+            <div class="filterGroup">
+                <p class="filterTitle">Filter By:</p>
+                <select class="form-control" name="searchType">
+                    <option th:value="country" th:text="Country">Country</option>
+                    <option th:value="continent" th:text="Continent">Continent</option>
+                </select>
+                <p class="filterTitle">Enter Value:</p>
+                <input type="text" class="form-control" name="searchValue">
+                <input class="searchBtn btn btn-lg btn-primary btn-block" id="submitBtn" type="submit" value="Search">
+            </div>
+        </form>
+
     </div>
     </div>
 </div>
