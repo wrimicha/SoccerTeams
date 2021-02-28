@@ -1,4 +1,4 @@
-CREATE TABLE record(
+CREATE TABLE team(
     id LONG PRIMARY KEY AUTO_INCREMENT,
     country VARCHAR(30),
     continent VARCHAR(30),

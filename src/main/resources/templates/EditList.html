@@ -15,7 +15,7 @@
         <h3 class="boxTitle">List of all Teams:</h3>
         <table>
         <tr><th>ID</th><th>Country</th><th>Continent</th><th>Games Played</th><th>Games Won</th><th>Games Drawn</th><th>Games Won</th></tr>
-        <th:block th:each="s:${records}">
+        <th:block th:each="s:${teams}">
             <tr><td th:text="${s.id}"></td>
                 <td th:text="${s.country}"></td>
                 <td th:text="${s.continent}"></td>

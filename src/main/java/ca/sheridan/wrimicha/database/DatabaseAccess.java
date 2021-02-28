@@ -1,6 +1,6 @@
 package ca.sheridan.wrimicha.database;
 
-import ca.sheridan.wrimicha.model.Record;
+import ca.sheridan.wrimicha.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -16,21 +16,20 @@ public class DatabaseAccess {
     @Autowired
     NamedParameterJdbcTemplate jdbc;
 
-
-    public void  insertRecord(@ModelAttribute Record record){
+    public void  insertRecord(@ModelAttribute Team team){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "INSERT INTO record(country, continent, gamesPlayed, gamesWon, gamesDrawn, gamesLost)" +
+        String query = "INSERT INTO team(country, continent, gamesPlayed, gamesWon, gamesDrawn, gamesLost)" +
                 " VALUES(:country, :continent, :gamesPlayed, :gamesWon, :gamesDrawn, :gamesLost)";
-        namedParameters.addValue("country" , record.getCountry());
-        namedParameters.addValue("continent" , record.getContinent());
-        namedParameters.addValue("gamesPlayed" , record.getGamesPlayed());
-        namedParameters.addValue("gamesWon" , record.getGamesWon());
-        namedParameters.addValue("gamesDrawn" , record.getGamesDrawn());
-        namedParameters.addValue("gamesLost" , record.getGamesLost());
+        namedParameters.addValue("country" , team.getCountry());
+        namedParameters.addValue("continent" , team.getContinent());
+        namedParameters.addValue("gamesPlayed" , team.getGamesPlayed());
+        namedParameters.addValue("gamesWon" , team.getGamesWon());
+        namedParameters.addValue("gamesDrawn" , team.getGamesDrawn());
+        namedParameters.addValue("gamesLost" , team.getGamesLost());
         int rowsAffected = jdbc.update(query,namedParameters);
         if (rowsAffected > 0)
-            System.out.println("Record record was added successfully!");
+            System.out.println("Team record was added successfully!");
 
     }
 
@@ -47,25 +46,23 @@ public class DatabaseAccess {
 //        int rowsAffected = jdbc.update(query,namedParameters);
 //        if (rowsAffected > 0)
 //            System.out.println("Record record was added successfully!");
-//
 //    }
 
-    public List<Record> getRecords(){
+    public List<Team> getRecords(){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record";
+        String query = "SELECT * FROM team";
 
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
-
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
 
-    public List<Record> searchRecordsByCountry(String searchValue){
+    public List<Team> searchRecordsByCountry(String searchValue){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record WHERE country LIKE %:searchValue%";
+        String query = "SELECT * FROM team WHERE country LIKE %:searchValue%";
         namedParameters.addValue("country" , searchValue);
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
 //    public List<Record> searchRecordsByContinent(int id){
@@ -77,55 +74,51 @@ public class DatabaseAccess {
 //
 //    }
 
-
-    public List<Record> getRecordsByName(){
+    public List<Team> getRecordsByName(){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record ORDER BY country";
+        String query = "SELECT * FROM team ORDER BY country";
 
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
-
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
-    public List<Record> getRecordsByContinent(){
+    public List<Team> getRecordsByContinent(){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record ORDER BY continent";
+        String query = "SELECT * FROM team ORDER BY continent";
 
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
-
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
-    public List<Record> getRecordsByPoints(){
+    public List<Team> getRecordsByPoints(){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record ORDER BY (gamesWon * 3 + gamesDrawn) DESC";
+        String query = "SELECT * FROM team ORDER BY (gamesWon * 3 + gamesDrawn) DESC";
 
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
-
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
-    public List<Record> getRecordById(Long id){
+    public List<Team> getRecordById(Long id){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM record WHERE id =:id";
+        String query = "SELECT * FROM team WHERE id =:id";
         namedParameters.addValue("id" , id);
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
 
-    public void updateRecordById(Record record){
+    public void updateRecordById(Team team){
 
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         String query =
-                "UPDATE record SET country =:country, continent =:continent, gamesPlayed =:gamesPlayed, gamesWon =:gamesWon, gamesDrawn =:gamesDrawn, gamesLost =:gamesLost WHERE id = :id";
-        namedParameters.addValue("id" , record.getId());
-        namedParameters.addValue("country" , record.getCountry());
-        namedParameters.addValue("continent" , record.getContinent());
-        namedParameters.addValue("gamesPlayed" , record.getGamesPlayed());
-        namedParameters.addValue("gamesWon" , record.getGamesWon());
-        namedParameters.addValue("gamesDrawn" , record.getGamesDrawn());
-        namedParameters.addValue("gamesLost" , record.getGamesLost());
+                "UPDATE team SET country =:country, continent =:continent, gamesPlayed =:gamesPlayed, gamesWon =:gamesWon, gamesDrawn =:gamesDrawn, gamesLost =:gamesLost WHERE id = :id";
+        namedParameters.addValue("id" , team.getId());
+        namedParameters.addValue("country" , team.getCountry());
+        namedParameters.addValue("continent" , team.getContinent());
+        namedParameters.addValue("gamesPlayed" , team.getGamesPlayed());
+        namedParameters.addValue("gamesWon" , team.getGamesWon());
+        namedParameters.addValue("gamesDrawn" , team.getGamesDrawn());
+        namedParameters.addValue("gamesLost" , team.getGamesLost());
         int rowsAffected = jdbc.update(query,namedParameters);
         if (rowsAffected > 0)
             System.out.println("Student record was updated successfully!");
@@ -133,25 +126,24 @@ public class DatabaseAccess {
 
     public void deleteRecordById(Long id) {
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "DELETE FROM record WHERE id = :id";
+        String query = "DELETE FROM team WHERE id = :id";
         namedParameters.addValue("id", id);
         int rowsAffected = jdbc.update(query, namedParameters);
         if (rowsAffected > 0)
             System.out.println("Team record was deleted successfully!");
-
     }
 
-    public List<Record> getRecordByCountryContinent(String searchType, String searchValue){
+    public List<Team> getRecordByCountryContinent(String searchType, String searchValue){
         String query;
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         if (searchType.equals("country")){
-            query = "SELECT * FROM record WHERE country LIKE :country";
+            query = "SELECT * FROM team WHERE country LIKE :country";
             namedParameters.addValue("country", "%" + searchValue + "%");
         } else {
-            query = "SELECT * FROM record WHERE continent LIKE :continent";
+            query = "SELECT * FROM team WHERE continent LIKE :continent";
             namedParameters.addValue("continent", "%" + searchValue + "%");
         }
-        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Record>(Record.class));
+        return jdbc.query(query,namedParameters,new BeanPropertyRowMapper<Team>(Team.class));
     }
 
 

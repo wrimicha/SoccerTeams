@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
 html{
     font-family: Poppins, sans-serif;
     -webkit-background-size: cover;
@@ -9,7 +11,7 @@ html{
 }
 
 body {
-    font-family: Futura, sans-serif;
+    font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -125,8 +127,6 @@ header div.hero h1 {
     position: absolute;
 }
 
-/* Home Page */
-
 .overlay{
     top: 0;
     left: 0;
@@ -168,6 +168,7 @@ header div.hero h1 {
 
 
 /*Home Page*/
+
 .homeTitle{
     text-align: center;
     margin-top: 10%;

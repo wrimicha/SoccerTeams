@@ -12,31 +12,42 @@
     <div class="containerNarrow">
         <h3 class="boxTitle">Edit Team:</h3>
         <div class>
-            <form th:action="@{/modifyRecord}" th:object="${record}" method="POST">
+            <form th:action="@{/modifyRecord}" th:object="${team}" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="hidden" th:field="*{id}">
                 </div>
+
                 <div class="form-group">
-                    <h4>Country:</h4>
+                    <h6>Country:</h6>
                     <input class="form-control" th:field="*{country}">
-                </div><div class="form-group">
-                <h4>Continent:</h4>
-                <input class="form-control" th:field="*{continent}">
-            </div>
+                </div>
+
                 <div class="form-group">
-                    <h4>Games Played:</h4>
+                    <h6>Continent:</h6>
+                    <select class="form-control" th:field="*{continent}">
+                        <th:block th:each="c : ${continents}">
+                            <option th:value="${c}" th:text="${c}">Continent</option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <h6>Games Played:</h6>
                     <input class="form-control" th:field="*{gamesPlayed}">
                 </div>
+
                 <div class="form-group">
-                    <h4>Games Won:</h4>
+                    <h6>Games Won:</h6>
                     <input class="form-control" th:field="*{gamesWon}">
                 </div>
+
                 <div class="form-group">
-                    <h4>Games Drawn:</h4>
+                    <h6>Games Drawn:</h6>
                     <input class="form-control" th:field="*{gamesDrawn}">
                 </div>
+
                 <div class="form-group">
-                    <h4>Games Lost:</h4>
+                    <h6>Games Lost:</h6>
                     <input class="form-control" th:field="*{gamesLost}">
                 </div>
 
