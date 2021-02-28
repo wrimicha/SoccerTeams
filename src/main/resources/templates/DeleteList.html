@@ -2,9 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
-    <!--        <link rel="stylesheet" th:href="@{css/style.css}">-->
+    <title>Delete</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div th:replace="partials/header::myHeader"></div>
 </head>
@@ -43,31 +41,7 @@
             </form>
         </div>
     </div>
+    <footer th:replace="partials/footer::footer"></footer>
 </div>
-
-<script>
-    function myFunction() {
-        if(confirm("Are you sure you want to delete?") ){
-            $(location).attr('href', 'deleteRecordById/' + $("#delete").val());
-            // window.location.href('/home');
-            return true;
-        } else {
-            alert("Team was not deleted.");
-            return false;
-        }
-    }
-</script>
-
-
-<!--<script>-->
-<!--    var btnNo = document.querySelector(".btnNo");-->
-<!--    var btnYes = document.querySelector(".btnYes");-->
-
-<!--    btnNo.addEventListener("click", () => {-->
-<!--        window.location.href = th:href="$@{'deleteRecordById/' + ${s.id}}";-->
-<!--    })-->
-
-<!--</script>-->
-
 </body>
 </html>

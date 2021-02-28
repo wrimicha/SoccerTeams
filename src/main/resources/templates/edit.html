@@ -2,10 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
-<!--        <link rel="stylesheet" th:href="@{css/style.css}">-->
-        <div th:replace="partials/header::myHeader"></div>
+    <title>Edit</title>
+    <div th:replace="partials/header::myHeader"></div>
 </head>
 <body class="addPageBg">
 
@@ -33,22 +31,22 @@
 
                 <div class="form-group">
                     <h6>Games Played:</h6>
-                    <input class="form-control" th:field="*{gamesPlayed}">
+                    <input type="number" step="1" class="form-control" th:field="*{gamesPlayed}">
                 </div>
 
                 <div class="form-group">
                     <h6>Games Won:</h6>
-                    <input class="form-control" th:field="*{gamesWon}">
+                    <input type="number" step="1" class="form-control" th:field="*{gamesWon}">
                 </div>
 
                 <div class="form-group">
                     <h6>Games Drawn:</h6>
-                    <input class="form-control" th:field="*{gamesDrawn}">
+                    <input type="number" step="1" class="form-control" th:field="*{gamesDrawn}">
                 </div>
 
                 <div class="form-group">
                     <h6>Games Lost:</h6>
-                    <input class="form-control" th:field="*{gamesLost}">
+                    <input type="number" step="1" class="form-control" th:field="*{gamesLost}">
                 </div>
 
                 <div class="form-group">
@@ -56,7 +54,7 @@
                 </div>
             </form>
         </div>
-
     </div>
+    <footer th:replace="partials/footer::footer"></footer>
 </body>
 </html>

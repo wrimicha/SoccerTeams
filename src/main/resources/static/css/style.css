@@ -7,7 +7,6 @@ html{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    /*background: #2f2f2f url("../images/bg2.jpg") no-repeat center center fixed;*/
 }
 
 body {
@@ -17,22 +16,7 @@ body {
     width: 100%;
     height: 100%;
     background: #2f2f2f url("../images/bg2.jpg") no-repeat center center fixed;
-    /*background: linear-gradient(90deg, rgba(2, 0, 36, 0.665703781512605) 0%, rgba(9, 9, 121, 0.6965161064425771) 35%, rgba(0, 212, 255, 0.6741071428571428) 100%);*/
 }
-
-/*.color-overlay{*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    opacity: 0.7;*/
-/*    background: linear-gradient(90deg, rgba(2, 0, 36, 0.665703781512605) 0%, rgba(9, 9, 121, 0.6965161064425771) 35%, rgba(0, 212, 255, 0.6741071428571428) 100%);*/
-/*}*/
-
-/* Common CSS */
-
-/*.active{*/
-/*    border: 1px solid white;*/
-/*    border-radius: 10px;*/
-/*}*/
 
 div .space{
     height: 50px;
@@ -120,7 +104,6 @@ header div.hero h1 {
 }
 
 .navbar-brand img{
-    /*background: url("../images/logo.png");*/
     width: 120px;
     top: 10px;
     left: 50px;
@@ -137,35 +120,6 @@ header div.hero h1 {
     position: fixed;
     z-index: -1;
 }
-
-
-/*header {*/
-/*    height: 800px;*/
-/*    background-size: cover;*/
-/*    background: #cf0004 url("../images/fifa_18.jpg") no-repeat center top;*/
-/*    position: relative;*/
-/*}*/
-
-/*.overlay {*/
-/*    postition: absolute;*/
-/*    left: 0;*/
-/*    top: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background: rgb(2, 0, 36);*/
-/*    background: linear-gradient(90deg, rgba(2, 0, 36, 0.665703781512605) 0%, rgba(9, 9, 121, 0.6965161064425771) 35%, rgba(0, 212, 255, 0.6741071428571428) 100%);*/
-/*}*/
-
-/*.overlay2{*/
-/*    postition: absolute;*/
-/*    left: 0;*/
-/*    top: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background: rgb(0,0,0);*/
-/*    background: linear-gradient(90deg, rgba(0,0,0,0.8897934173669468) 0%, rgba(56,56,56,0.8365721288515406) 45%, rgba(0,0,0,0.8561799719887955) 100%);*/
-/*}*/
-
 
 /*Home Page*/
 
@@ -210,6 +164,7 @@ header div.hero h1 {
 
 
 /* Display Page */
+
 .filter {
     width: 18.4%;
     margin: 10px 7%;
@@ -220,7 +175,6 @@ header div.hero h1 {
 }
 
 .filterGroup{
-    /*background-color: #dedede;*/
     border-radius: 5px;
     padding: 15px;
     margin-top: 20px;
@@ -240,23 +194,6 @@ header div.hero h1 {
     text-align: center;
     padding-bottom: 0;
 }
-
-/*.buttonStyle {*/
-/*    display: block;*/
-/*    text-align: center;*/
-/*    border-radius: 15px;*/
-/*    width: 25%;*/
-/*    margin-left: 37.5%;*/
-/*    margin-right: 37.5%;*/
-/*    text-decoration: none;*/
-/*    border: none;*/
-/*    padding: 10px 0;*/
-/*    margin-top: 25px;*/
-/*    background-color: #1b2a4e;*/
-/*    color: white;*/
-/*    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);*/
-/*    margin-bottom: 10px;*/
-/*}*/
 
 footer{
     position:fixed;

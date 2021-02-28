@@ -1,4 +1,4 @@
-CREATE TABLE team(
+CREATE TABLE Teams(
     id LONG PRIMARY KEY AUTO_INCREMENT,
     country VARCHAR(30),
     continent VARCHAR(30),

@@ -2,10 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Display Results</title>
     <div th:replace="partials/header::myHeader"></div>
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-
 </head>
 <body>
 
@@ -25,7 +23,6 @@
                         <td th:text="${s.gamesLost}"></td>
                         <td th:text="${3 * s.gamesWon + s.gamesDrawn}"></td>
                     </tr>
-
                 </th:block>
             </table>
 
@@ -50,10 +47,7 @@
 
         </div>
     </div>
+    <footer th:replace="partials/footer::footer"></footer>
 </div>
-
-
-
-
 </body>
 </html>
